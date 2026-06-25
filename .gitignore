@@ -1,0 +1,12 @@
+__pycache__/
+calyx.log
+memory.json
+response.json
+*.pyc
+.env
+
+# .pyc = Python Compiled file
+# Python first converts your .py code into bytecode (faster for Python to execute).
+
+# .env = Environment Variables file
+# It stores secret/private values outside your code.like api
