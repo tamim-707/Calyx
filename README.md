@@ -30,7 +30,7 @@ Version: v1.0
 Clone the repository:
 
 ```bash
-git clone https://github.com/tamim-707/Calyx-my-first-project-.git
+git clone https://github.com/tamim-707/Calyx.git
 ```
 
 Install dependencies:
