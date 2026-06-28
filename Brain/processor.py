@@ -1,8 +1,11 @@
-from commands import command
-from func import set_name , set_preference , set_note 
-from personality import set_personality
-from perm_func import  hello 
-from api_func import get_weather,get_news
+from Commands.commands import command
+from Commands.name_remember_me import set_name 
+from Commands.note_preference import set_preference ,set_note
+from Utils.personality import set_personality
+from Commands.basic import  hello 
+from API.weather_api import get_weather
+from API.news_api import get_news
+from Commands.web_app_open import open_calculator,open_chrome,open_command,open_fb,open_file,open_google,open_insta,open_notepad,open_vs_code,open_yt
 
 def process_commands(user,user_modified) :
  if user_modified.startswith("my name is "):
@@ -13,8 +16,6 @@ def process_commands(user,user_modified) :
 
  elif "my favorite colour is" in user_modified or "my hobby is" in user_modified :
        return set_preference(user)
- 
-
  
  elif user_modified.startswith("weather of "):
        city = user_modified.replace("weather of ","").strip()
@@ -39,6 +40,29 @@ def process_commands(user,user_modified) :
  elif "hi" in user_modified.split():
        return hello()
  
+ elif user_modified.startswith("open "):
+      target = user_modified.replace("open ","").strip()
+      open_map = {
+           "youtube" : open_yt,
+           "yt" : open_yt,
+           "fb" : open_fb,
+           "facebook" : open_fb,
+           "insta" : open_insta,
+           "instagram" : open_insta,
+           "file" : open_file,
+           "google" : open_google,
+           "calcultor" : open_calculator,
+           "chrome" : open_chrome,
+           "Command" : open_command,
+           "cmd" : open_command,
+           "notepad" : open_notepad,
+           "VS Code" : open_vs_code
+      }
+      if target in open_map :
+           return open_map[target]()
+      else :
+          return f"I don't know how to open {target}"
+      
  for key in sorted(command,key=len,reverse=True):
       if key in user_modified :
            return command[key]()

@@ -1,0 +1,11 @@
+{
+    "assistant_name" : "Calyx",
+    "settings" : {
+         "voice_enable" : false,
+         "debug_mode" : true
+    },
+    "api_keys" : {
+         "news_api" : "",
+         "weather_api" : ""       
+    }
+}

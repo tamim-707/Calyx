@@ -47,10 +47,4 @@ def reset_memory():
    except Exception as e:
        return f"Error reseting memeory : {e}"
    
-#Logging system (debugging history)
-from datetime import datetime
-def log(message):
-   time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-   with open("calyx.log","a") as file:
-      file.write(f"[{time}] {message}\n")

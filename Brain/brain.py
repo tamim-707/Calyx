@@ -1,11 +1,12 @@
-from commands import command
-from process import process_commands
-from storage import save_memory,log
+from Commands.commands import command
+from Brain.processor import process_commands
+from Memory.storage import save_memory
+from Utils.logger import log
 def run_brain():
   while True:
     user = input("You: ").strip()
 
-    log(f"USER INPUT : {user} ")
+    log("INFO" , f"USER INPUT : {user} ")
         
     user_modified = user.lower()
     result = None  
@@ -13,7 +14,7 @@ def run_brain():
 
     try :
       result = process_commands(user,user_modified )      
-      log(f"BOT RESPONSE: {result}")
+      log("INFO" , f"BOT RESPONSE: {result}")
        
       if result == "Goodbye!" :
             print ("Calyx:",result)
@@ -23,6 +24,6 @@ def run_brain():
       save_memory(user,result)
 
     except Exception as e :
-        log(f"ERROR: {e}")
+        log("ERROR", f"{e}")
         print(type(e))
-        print("Error:",e)     
+        print("Error:" ,e)     
