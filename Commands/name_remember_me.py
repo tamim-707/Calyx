@@ -1,10 +1,11 @@
-from Memory.storage import load_memory,save_data
+from Memory.storage import Memory
+memory = Memory()
 #Save your name in Calyx
 def save_name(name):
-   data = load_memory()
+   data = memory.load()
    data["name"]= name.capitalize()
 
-   save_data(data)
+   memory.save(data)
 
 def set_name(user):
    name = user.replace("my name is","").strip().capitalize()
@@ -12,7 +13,7 @@ def set_name(user):
    return f"Hey {name} ! Nice to meet you"
 
 def show_name():
-   data = load_memory()
+   data = memory.load()
    name = data.get("name")
    if name :
       return f"You are {name}"
@@ -24,7 +25,7 @@ def show_name():
 
 #History Function
 def show_history():
-   data = load_memory()
+   data = memory.load()
    history = ""
 
    for chat in data["memory"] :
@@ -34,7 +35,7 @@ def show_history():
 
 #MY memory in Calyx
 def remember_me():
-   memory = load_memory()
+   memory = memory.load()
    pref = memory.get("pref",{})
    name= memory.get("name")
    colour = pref.get("colour")

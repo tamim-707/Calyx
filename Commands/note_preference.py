@@ -1,14 +1,15 @@
 #Stores Preference in Memory
-from Memory.storage import load_memory,save_data
+from Memory.storage import Memory
+memory = Memory()
 
 def save_preference(key,value):
-   data = load_memory()
+   data = memory.load()
 
    if "pref" not in data:
      data["pref"]={}
 
    data["pref"][key] = value.capitalize()
-   save_data(data)
+   memory.save(data)
 
 def set_preference(user):
    if "my favorite colour is" in user:
@@ -24,7 +25,7 @@ def set_preference(user):
    return "I didn't understand your preference"
 
 def show_preference(item=None):
-   pref = load_memory().get("pref",{})
+   pref = memory.load().get("pref",{})
    colour = pref.get("colour")
    hobby = pref.get("hobby")
 
@@ -38,10 +39,10 @@ def show_preference(item=None):
 
 #Make Notes
 def save_note(note):
-   data = load_memory ()
+   data = memory.load ()
    data.setdefault("notes", [])
    data["notes"].append(note)
-   save_data(data)
+   memory.save(data)
 
 def set_note(user):
    note = user.lower().replace("note this","").strip()
@@ -51,7 +52,7 @@ def set_note(user):
    return f"I've noted : {note}"
 
 def show_note ():
-   data = load_memory()
+   data = memory.load()
    notes = data.get("notes",[])
    if not notes :
       return "No notes save yet."

@@ -1,8 +1,9 @@
-from Memory.storage import load_memory
+from Memory.storage import Memory
+memory = Memory()
 import json
 import random
 def set_personality(mode):
-   data = load_memory()
+   data = memory.load()
    data["personality"] = mode
 
    if mode not in personalities :
@@ -63,7 +64,7 @@ personalities = {
 
 #Get Personalities
 def get_personalities() :
-   data = load_memory()
+   data = memory.load()
    return data.get("personality", "friendly")
 
 def get_response(response_type):
