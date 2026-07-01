@@ -108,5 +108,5 @@ def process_commands(user,user_modified,context) :
       if key in user_modified :
            return command[key]()
  
- return "Unknown command. Type 'help' for Command List"
+ return None
  

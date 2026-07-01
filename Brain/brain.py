@@ -2,6 +2,7 @@ from Brain.processor import process_commands
 from Memory.storage import Memory
 from Commands.context  import Context
 from Utils.logger import log
+from LLM.groq_api import ask_groq
 def run_brain():
   memory = Memory()
   context = Context()
@@ -22,9 +23,13 @@ def run_brain():
             print ("Calyx:",result)
             memory.save_chat(user,result)
             break
-      
+      elif result is None :
+         result = ask_groq(user)
+
       print ("Calyx:",result)
       memory.save_chat(user,result)
+
+  
 
     except Exception as e :
         log("ERROR", f"{e}")
