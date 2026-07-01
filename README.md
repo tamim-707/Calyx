@@ -1,4 +1,4 @@
-# # Calyx — Python AI Agent
+# # Calyx — AI Agent
 
 Calyx is a Python-based personal AI assistant built by Tamim.
 
@@ -125,28 +125,6 @@ pip install requests python-dotenv groq google-generativeai
 
 ---
 
-# Environment Variables
-
-Create a `.env` file:
-
-```env
-GROQ_API_KEY=your_key_here
-GEMINI_API_KEY=your_key_here
-NEWS_API_KEY=your_key_here
-```
-
-Never upload `.env` to GitHub.
-
-Add to `.gitignore`:
-
-```gitignore
-.env
-__pycache__/
-*.pyc
-```
-
----
-
 # How to Run
 
 ```bash
@@ -264,7 +242,6 @@ how do black holes form
 
 ### Phase 4
 - LLM integration
-- Gemini support
 - Groq support
 
 ---
