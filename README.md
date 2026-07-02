@@ -1,38 +1,66 @@
-# # Calyx — AI Agent
+# Calyx — Personal AI Agent
 
 Calyx is a Python-based personal AI assistant built by Tamim.
 
-It combines rule-based commands, memory, APIs, and LLM capabilities to create a smart desktop assistant that can answer questions, remember information, and perform useful tasks.
+It can chat with you, answer questions using AI, remember things, open apps/websites, fetch live weather/news, and now even speak back using voice.
 
-Current Version: **v1.0**
+**Current Version:** v1.3 (Voice Enabled)
 
 ---
 
-## Features
+## What Can Calyx Do?
 
-### Core Assistant
-- Greeting system
-- Help menu
+### Talk Like an AI Assistant
 - Natural conversation
-- Personality-based responses
-- Exit / goodbye system
+- Personality-based replies
+- AI-powered answers using LLM
 
-### Memory System
-- Remember user information
-- Store notes
-- Save preferences
-- Search memory
-- Priority-based memory
-- Forget system
+Example:
+```bash
+You: what is a black hole
+Calyx: A black hole is a region in space where gravity is so strong that even light cannot escape.
+```
+
+---
+
+### Remember Things
+Calyx can store information and recall it later.
+
+Examples:
+```bash
+remember my name
+show notes
+search memory
+forget
+```
+
+---
 
 ### Productivity Tools
 - Calculator
 - To-do list
-- Notes system
+- Notes
 - Time & Date
 
-### App / Web Launcher
-Open apps and websites directly:
+Example:
+```bash
+You: time
+Calyx: 10:45 PM
+```
+
+---
+
+### Open Apps & Websites
+Calyx can launch apps and websites for you.
+
+Examples:
+```bash
+open youtube
+open google
+open vscode
+```
+
+Supported apps/websites:
 - YouTube
 - Google
 - Facebook
@@ -44,168 +72,29 @@ Open apps and websites directly:
 - Command Prompt
 - File Explorer
 
-### APIs
-- Weather API
-- News API
-
-### LLM Integration
-Calyx can answer general knowledge questions using LLMs:
-- Groq API (Llama)
-
-Examples:
-```bash
-You: what is a black hole
-You: who is trump
-```
-
-### Architecture Improvements
-- Refactored using OOP
-- Modular folder structure
-- Command routing system
-- Separate memory/storage layer
-- LLM fallback for unknown commands
-
 ---
 
-# Project Structure
+### Live Information
+Using APIs, Calyx can fetch real-time data.
 
-```bash
-Calyx/
-│
-├── main.py
-│
-├── Brain/
-│   └── brain.py
-│
-├── Commands/
-│   ├── basic.py
-│   ├── web_app_open.py
-│   ├── calculator.py
-│   ├── todo.py
-│   ├── news.py
-│   ├── weather.py
-│   ├── note_preference.py
-│   └── name_remember_me.py
-│
-├── Memory/
-│   ├── memory.json
-│   └── storage.py
-│
-├── LLM/
-│   ├── gemini_api.py
-│   └── groq_api.py
-│
-├── config.py
-├── .env
-└── README.md
-```
-
----
-
-# Installation
-
-## 1. Clone Repository
-
-```bash
-git clone https://github.com/tamim-707/Calyx.git
-cd Calyx
-```
-
-## 2. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Or manually:
-
-```bash
-pip install requests python-dotenv groq google-generativeai
-```
-
----
-
-# How to Run
-
-```bash
-python main.py
-```
+- Weather
+- News
 
 Example:
-
-```bash
-Hey there! Calyx v1.0 here.....
-You: hi
-Calyx: Ah, my favorite human is back.
-```
-
----
-
-# Example Commands
-
-## Basic
-
-```bash
-hello
-help
-bye
-```
-
-## Time & Date
-
-```bash
-time
-date
-```
-
-## Calculator
-
-```bash
-calc
-```
-
-Example:
-
-```bash
-Question: 3+4+2
-Answer is 9
-```
-
-## Weather
-
 ```bash
 weather of dhaka
-```
-
-## News
-
-```bash
 news of sports in us
 ```
 
-## Memory
+---
 
+### Voice Output
+Calyx can speak its replies using Text-to-Speech.
+
+Example:
 ```bash
-remember my name
-show notes
-search memory
-forget
-```
-
-## Open Apps
-
-```bash
-open youtube
-open google
-open vscode
-```
-
-## LLM Questions
-
-```bash
-what is quantum physics
-who is elon musk
-how do black holes form
+You: hello
+Calyx: Hey! What can I do for you?
 ```
 
 ---
@@ -216,73 +105,100 @@ how do black holes form
 - OOP
 - JSON Storage
 - REST APIs
-- Gemini API
-- Groq API
-- LLM Prompting
+- Groq API (Llama)
+- Edge TTS
 
 ---
 
-# Development Timeline
+# Installation
 
-### Phase 1
-- Basic command system
+## Clone Repository
+```bash
+git clone https://github.com/tamim-707/Calyx.git
+cd Calyx
+```
+
+## Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Run Calyx
+
+```bash
+python main.py
+```
+
+---
+
+# Project Structure
+
+```bash
+Calyx/
+│
+├── Brain/
+├── Commands/
+├── Memory/
+├── API/
+├── LLM/
+├── Utils/
+│
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# Development Progress
+
+### Phase 1 — Core System ✅
+- Command system
 - Memory
 - Notes
 - Calculator
 
-### Phase 2
-- Refactor into modules
-- OOP architecture
-- Better storage
+### Phase 2 — Architecture Upgrade ✅
+- OOP structure
+- Modular design
+- Better routing
 
-### Phase 3
+### Phase 3 — Assistant Upgrade ✅
 - Weather API
 - News API
 - To-do list
+- Voice output
 
-### Phase 4
-- LLM integration
-- Groq support
+### Phase 4 — AI Brain ✅
+- Groq LLM integration
+- Smart fallback responses
 
 ---
 
 # Future Plans
 
-Planned upgrades for Calyx:
-
-- Voice input
-- Voice output (TTS)
-- Better intent router
-- Context-aware memory
+- Voice input (Speech Recognition)
+- Better memory
 - GUI version
-- Autonomous AI agent features
-- Tool calling
-- Local LLM support (Ollama)
+- Mobile support
+- Autonomous AI agent
+- Local LLM support
 
 ---
 
-# Goal of Calyx
+# Goal
 
-The long-term goal is to turn Calyx into a powerful personal AI agent capable of:
-
-- Natural conversation
-- Reasoning
-- Memory
-- Tool use
-- Automation
-- Task execution
+My goal is to turn Calyx into a real personal AI agent similar to Siri or Jarvis — capable of conversation, reasoning, memory, and task execution.
 
 ---
 
 # Author
 
 **Tamim (tamim-707)**  
-Creator of Calyx
-
 GitHub: https://github.com/tamim-707
 
 ---
 
-# Status
-
-Actively under development.
+**Status:** Active Development 🚀
