@@ -1,0 +1,6 @@
+groq
+requests
+python-dotenv
+edge-tts
+playsound==1.2.2
+pyttsx3

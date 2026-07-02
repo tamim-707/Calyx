@@ -3,6 +3,7 @@ from Memory.storage import Memory
 from Commands.context  import Context
 from Utils.logger import log
 from LLM.groq_api import ask_groq
+from Utils.helper import reply
 def run_brain():
   memory = Memory()
   context = Context()
@@ -17,16 +18,19 @@ def run_brain():
 
     try :
       result = process_commands(user,user_modified,context )      
-      log("INFO" , f"BOT RESPONSE: {result}")
        
       if result == "Goodbye!" :
-            print ("Calyx:",result)
+            reply(result)
             memory.save_chat(user,result)
             break
       elif result is None :
          result = ask_groq(user)
 
-      print ("Calyx:",result)
+      log("INFO" , f"BOT RESPONSE: {result}")
+
+      # print ("Calyx:",result)
+      # speak(result)
+      reply(result)
       memory.save_chat(user,result)
 
   
