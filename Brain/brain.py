@@ -3,13 +3,17 @@ from Memory.storage import Memory
 from Commands.context  import Context
 from Utils.logger import log
 from LLM.groq_api import ask_groq
+from Utils.speech import speech_to_text
 from Utils.helper import reply
 def run_brain():
   memory = Memory()
   context = Context()
   while True:
-    user = input("You: ").strip()
-
+    # user = input("You: ").strip()
+    user = speech_to_text().strip()
+    if not user :
+       continue
+    # print("You:",user)
     log("INFO" , f"USER INPUT : {user} ")
         
     user_modified = user.lower()
