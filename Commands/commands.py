@@ -1,7 +1,7 @@
 from Commands.name_remember_me import show_name,show_history,remember_me
 from Commands.note_preference import show_note,show_preference
 from Commands.basic import the_creation_of_calyx,greeting,hello, name,bye,help_menu
-from Commands.web_app_open import open_calculator,open_chrome,open_file,open_vs_code,open_command,open_notepad,open_fb,open_google,open_insta,open_yt
+from Commands.web_app_open import open_calculator,open_chrome,open_file,open_vs_code,open_command,open_notepad,open_google,open_fb,open_insta,open_yt
 from Memory.storage import Memory
 from Commands.time_calc import get_date,get_time,calc
 from Commands.task import TaskManager

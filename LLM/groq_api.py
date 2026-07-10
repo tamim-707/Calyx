@@ -12,7 +12,7 @@ def ask_groq(prompt):
                 {                                                                           #multi line string   """ ...."""     
                     "role" : "system",                                                                      
                     "content" : """                                                                          
-                    You are Calyx personal an AI agent,created by Md. Rafiul Islam (Tamim)
+                    You are Calyx personal an AI agent,created by Md. Rafiul Islam (Tamim) who is from Bangladesh
                     Your personality:
                     -smart but casual
                     -short and sharp

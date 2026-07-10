@@ -1,20 +1,30 @@
 from Commands.commands import command
+from Commands.time_calc import  get_time, get_date
 from Commands.name_remember_me import set_name 
 from Commands.note_preference import set_preference ,set_note
 from Utils.personality import set_personality
-from Commands.basic import  hello 
+from Commands.basic import  hello , the_creation_of_calyx , bye
 from API.weather_api import get_weather
 from API.news_api import get_news
 from Commands.context import Context
 from Commands.task import TaskManager
 from Memory.storage import Memory
-from Commands.web_app_open import open_calculator,open_chrome,open_command,open_fb,open_file,open_google,open_insta,open_notepad,open_vs_code,open_yt
+from Commands.open_google import google_search
+from Commands.web_search import web_search
+from Commands.monitoring import get_battery,get_cpu,get_ram
+from Commands.web_app_open import open_calculator,open_chrome,open_command,open_google,open_fb,open_file,open_insta,open_notepad,open_vs_code,open_yt
 memory = Memory()
 task = TaskManager(memory)
 
 def process_commands(user,user_modified,context) :
  if user_modified.startswith("my name is "):
         return set_name(user)
+  
+  #Web search
+ elif user_modified.startswith("search web "):
+    query = user[11:].strip()
+    print("Searching:", query)
+    return web_search(query)
 
  elif user_modified.startswith("note this"):
         return set_note(user) 
@@ -44,7 +54,16 @@ def process_commands(user,user_modified,context) :
  
  elif "hi" in user_modified.split():
        return hello()
- 
+ elif "time" in user_modified:
+    return get_time()
+ elif "date" in user_modified:
+    return get_date()
+ elif "creation of calyx" in user_modified:
+    return the_creation_of_calyx()
+ elif "bye" in user_modified:
+    return bye()
+ elif "exit" in user_modified:
+    return bye()
  elif user_modified.startswith("open "):
       target = user_modified.replace("open ","").strip()
       open_map = {
@@ -56,7 +75,7 @@ def process_commands(user,user_modified,context) :
            "instagram" : open_insta,
            "file" : open_file,
            "google" : open_google,
-           "calcultor" : open_calculator,
+           "calculator" : open_calculator,
            "chrome" : open_chrome,
            "Command" : open_command,
            "cmd" : open_command,
@@ -102,11 +121,32 @@ def process_commands(user,user_modified,context) :
     except:
          return "Invalid command."
  
+ #Google Search
+ elif user_modified.startswith("google,") :
+     query = user.replace("google,","").strip()
+     google_search(query)
+     return f"Searching google for {query}"
+ elif user_modified.startswith("google ") :
+     query = user.replace("google ","").strip()
+     google_search(query)
+     return f"Searching google for {query}"
+ elif user_modified.startswith("google") :
+     query = user.replace("google","").strip()
+     google_search(query)
+     return f"Searching google for {query}"
+ 
 
+
+#Monitoring
+ elif "CPU" in user :
+     return get_cpu ()
+ elif "battery" in user :
+     return get_battery ()
+ elif "RAM" in user :
+     return get_ram ()
  #command key    
- for key in sorted(command,key=len,reverse=True):
-      if key in user_modified :
-           return command[key]()
+#  for key in sorted(command,key=len,reverse=True):
+#       if key in user_modified :
+#            return command[key]()
  
- return None
- 
+#  return None

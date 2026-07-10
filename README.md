@@ -4,7 +4,7 @@ Calyx is a Python-based personal AI assistant built by Tamim.
 
 It can chat with you, answer questions using AI, remember things, open apps/websites, fetch live weather/news, and now even speak back using voice.
 
-**Current Version:** v1.3 (Voice Enabled)
+**Current Version:** v2.0 (GUI + Smart Search)
 
 ---
 
@@ -14,11 +14,16 @@ It can chat with you, answer questions using AI, remember things, open apps/webs
 - Natural conversation
 - Personality-based replies
 - AI-powered answers using LLM
+- Smart web search fallback
 
 Example:
 ```bash
 You: what is a black hole
 Calyx: A black hole is a region in space where gravity is so strong that even light cannot escape.
+
+You: who is the current president of France
+Calyx: (Searches the web and answers with the latest information.)
+```
 ```
 
 ---
@@ -75,10 +80,11 @@ Supported apps/websites:
 ---
 
 ### Live Information
-Using APIs, Calyx can fetch real-time data.
+Using APIs and smart web search, Calyx can fetch real-time information.
 
 - Weather
 - News
+- Web Search
 
 Example:
 ```bash
@@ -99,6 +105,33 @@ Calyx: Hey! What can I do for you?
 
 ---
 
+### Voice Input
+Calyx can listen to your voice and execute commands.
+
+Example:
+```bash
+You: (Speak) Open YouTube
+Calyx: Opening YouTube...
+```
+---
+
+### Graphical User Interface (GUI)
+
+Calyx now includes a desktop GUI for chatting instead of only using the terminal.
+
+Features:
+
+- Chat window
+- Message history
+- User & assistant chat bubbles
+- Scrollable conversation
+- Text input box
+- Send button
+
+> GUI is currently built using **Tkinter**.
+
+---
+
 # Tech Stack
 
 - Python
@@ -107,6 +140,11 @@ Calyx: Hey! What can I do for you?
 - REST APIs
 - Groq API (Llama)
 - Edge TTS
+- Tkinter
+- Selenium
+- SpeechRecognition
+- Tavily Search API
+- psutil
 
 ---
 
@@ -138,14 +176,16 @@ python main.py
 ```bash
 Calyx/
 │
+├── API/
 ├── Brain/
 ├── Commands/
-├── Memory/
-├── API/
+├── GUI/
 ├── LLM/
+├── Memory/
 ├── Utils/
 │
 ├── main.py
+├── gui.py
 ├── requirements.txt
 └── README.md
 ```
@@ -175,13 +215,18 @@ Calyx/
 - Groq LLM integration
 - Smart fallback responses
 
+### Phase 5 — Desktop Experience ✅
+- Tkinter GUI
+- Chat interface
+- Voice input
+- Smart web search
+- Improved user experience
+
 ---
 
 # Future Plans
 
-- Voice input (Speech Recognition)
 - Better memory
-- GUI version
 - Mobile support
 - Autonomous AI agent
 - Local LLM support
